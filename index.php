@@ -21,7 +21,7 @@
           </div>';
       }
   } else {
-      echo "<br>0 results";
+      echo "<br> 0 results";
   }
 
 
