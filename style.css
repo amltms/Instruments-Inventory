@@ -3,3 +3,13 @@
   margin-bottom: 10px;
   width: 20%;
 }
+
+.card:hover{
+  transition: 0.5s;
+  background: #f2f2f2;
+}
+
+a:hover {
+
+  text-decoration: none;
+}
