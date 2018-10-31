@@ -6,11 +6,19 @@
   if (isset($_SESSION["username"])) {
     if (isset($_GET['error'])) {
       echo '<div class="alert alert-danger" role="alert">
-        Error inserting product.
+        An error has occourred. Please try again.
       </div>';
     }elseif (isset($_GET['success'])) {
       echo '<div class="alert alert-success" role="alert">
-        Product has been inserted.
+        Product inserted.
+      </div>';
+    }elseif (isset($_GET['delete'])) {
+      echo '<div class="alert alert-success" role="alert">
+        Product deleted.
+      </div>';
+    }elseif (isset($_GET['updated'])) {
+      echo '<div class="alert alert-success" role="alert">
+        Product updated.
       </div>';
     }
     echo '<div class="container">
@@ -49,7 +57,11 @@
               <p class="card-text">'.$row["productDiscription"].'</p>
               <h6 class="card-subtitle mb-2 text-muted">Stock: '.$row["productStock"].'</h6>';
               if (isset($_SESSION["username"])) {
-                echo '<hr><a href="" class="card-link">Edit</a><a href="#" class="card-link">Delete</a>';
+                echo '<form method="POST" action="insert_product.php">
+                  <hr>
+                  <button type="submit" value="'.$row["productID"].'" name="edit" class="lbtn">Edit</button>
+                  <button type="submit" value="'.$row["productID"].'" name="delete" class="lbtn">Delete</button>
+                </form>';
               }
         echo '</div>
           </div>
