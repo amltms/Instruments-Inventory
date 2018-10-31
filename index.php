@@ -2,8 +2,39 @@
   require 'conn.php';
   require 'nav.php';
   session_start();
-?>
-<?php
+
+  if (isset($_SESSION["username"])) {
+    if (isset($_GET['error'])) {
+      echo '<div class="alert alert-danger" role="alert">
+        Error inserting product.
+      </div>';
+    }elseif (isset($_GET['success'])) {
+      echo '<div class="alert alert-success" role="alert">
+        Product has been inserted.
+      </div>';
+    }
+    echo '<div class="container">
+      <form method="POST" action="insert_product.php" class="card-body bg-light">
+        <h3>Insert Product</h3>
+        <hr>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="name">Product Name</label>
+            <input type="text" name="name" class="form-control" id="name" placeholder="Name">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="stock">Product Stock</label>
+            <input type="text" name="stock" class="form-control" id="stock" placeholder="Stock">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Product Description</label>
+          <textarea class="form-control" name="discription" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <input type="submit" name="submit" class="btn btn-primary">
+      </form>
+    </div><br>';
+  }
   $sql = "SELECT * FROM product";
   $result = mysqli_query($conn, $sql);
 
@@ -18,7 +49,7 @@
               <p class="card-text">'.$row["productDiscription"].'</p>
               <h6 class="card-subtitle mb-2 text-muted">Stock: '.$row["productStock"].'</h6>';
               if (isset($_SESSION["username"])) {
-                echo '<a href="" class="card-link">Edit</a><a href="#" class="card-link">Delete</a>';
+                echo '<hr><a href="" class="card-link">Edit</a><a href="#" class="card-link">Delete</a>';
               }
         echo '</div>
           </div>

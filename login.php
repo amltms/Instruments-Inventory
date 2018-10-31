@@ -11,7 +11,8 @@
       </div>';
     }
     ?>
-    <form method="POST" action="login_check.php">
+    <form method="POST" class="card-body bg-light" action="login_check.php">
+      <h3>Login</h3><hr>
       <div class="form-group">
         <label for="username">Username</label>
         <input type="text" class="form-control" id="username" name="username"aria-describedby="usernameHelp" placeholder="Enter username">

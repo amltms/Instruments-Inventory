@@ -1,5 +1,11 @@
 <?php
-session_start(); ?>
+  session_start();
+  if (isset($_GET['logout'])){
+    session_destroy();
+    header("Location:index.php");
+
+  }
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -9,20 +15,20 @@ session_start(); ?>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Inventory</a>
+    <a class="navbar-brand" href="index.php">Music Store</a>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" href="login.php">Admin</a>
         </li>
       </ul>
       <span class="navbar-text">
         <?php
         if (isset($_SESSION["username"])) {
-          echo '<p>Logged in as '.$_SESSION["username"]. '</p>';
+          echo '<p>Logged in as '.$_SESSION["username"]. '  <a class="btn btn-outline-primary" href="?logout">Logout</a></p>';
         }
          ?>
       </span>

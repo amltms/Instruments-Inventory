@@ -30,6 +30,6 @@ require 'nav.php';
       Invalid Product.
     </div>';
   }
-  
+
   require 'footer.php';
 ?>
