@@ -9,7 +9,7 @@ CREATE TABLE admin (
 CREATE TABLE product (
   productID int PRIMARY KEY NOT NULL AUTO_INCREMENT,
   productName varchar(100) NOT NULL,
-  productDiscription varchar(100),
+  productDiscription varchar(255),
   productStock int NOT NULL,
   username varchar(100) NOT NULL,
   FOREIGN KEY (username) REFERENCES admin(username)

@@ -1,14 +1,13 @@
 <?php
   require 'conn.php';
   require 'nav.php';
+  require 'functions.php';
 ?>
   <div class="container">
     <br>
     <?php
     if(isset($_GET['error'])) {
-      echo '<div class="alert alert-danger" role="alert">
-        Invalid username or password.
-      </div>';
+      alert("danger", "Invalid username or password.");
     }
     ?>
     <form method="POST"style="width: 30rem; margin:0 auto;" class="card-body bg-light" action="login_check.php">

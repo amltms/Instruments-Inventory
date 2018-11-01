@@ -1,25 +1,17 @@
 <?php
   require 'conn.php';
   require 'nav.php';
+  require 'functions.php';
   session_start();
-
   if (isset($_SESSION["username"])) {
     if (isset($_GET['error'])) {
-      echo '<div class="alert alert-danger" role="alert">
-        An error has occourred. Please try again.
-      </div>';
+      alert("danger", "An error has occourred. Please try again.");
     }elseif (isset($_GET['success'])) {
-      echo '<div class="alert alert-success" role="alert">
-        Product inserted.
-      </div>';
+      alert("success", "Product inserted.");
     }elseif (isset($_GET['delete'])) {
-      echo '<div class="alert alert-success" role="alert">
-        Product deleted.
-      </div>';
+      alert("success", "Product deleted.");
     }elseif (isset($_GET['updated'])) {
-      echo '<div class="alert alert-success" role="alert">
-        Product updated.
-      </div>';
+      alert("success", "Product updated.");
     }
     echo '<div class="container">
       <form method="POST" action="insert_product.php" class="card-body bg-light">

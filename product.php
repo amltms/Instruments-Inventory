@@ -2,6 +2,7 @@
 session_start();
 require 'conn.php';
 require 'nav.php';
+require 'functions.php';
 
   if(isset($_GET['id'])) {
     $productID= $_GET['id'];
@@ -26,9 +27,7 @@ require 'nav.php';
       }
     }
   }elseif (isset($_GET['error'])) {
-    echo '<div class="alert alert-danger" role="alert">
-      Invalid Product.
-    </div>';
+    alert("danger", "Invalid product.");
   }elseif(isset($_GET['edit'])) {
     if (isset($_SESSION['username'])) {
       $productID = $_GET['edit'];
