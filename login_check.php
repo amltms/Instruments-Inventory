@@ -1,14 +1,7 @@
 <?php
 session_start();
 require 'conn.php';
-
-function checkData($data){
-  $data = strip_tags($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  $data = trim($data);
-  return $data;
-}
+require 'functions.php';
 
 if (isset($_POST['submit'])) {
 
