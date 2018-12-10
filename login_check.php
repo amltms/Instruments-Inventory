@@ -5,6 +5,7 @@ require 'functions.php';
 
 if (isset($_POST['submit'])) {
 
+  //The checkData functions strips any sql code from
   $username = checkData($_POST["username"]);
   $password = checkData($_POST["password"]);
 
@@ -14,11 +15,12 @@ if (isset($_POST['submit'])) {
   $stmt->execute();
   $result = $stmt->get_result();
 
-  //if the username doesnt exist then exist
+  //if the username doesnt exist then exit
   if (mysqli_num_rows($result) == 0){
     header("Location:login.php?error");
     exit();
-  }else {
+  //if username does exist then check the database hashed password with the user input password
+  }elseif (mysqli_num_rows($result) == 1) {
     if ($row = mysqli_fetch_assoc($result)){
       $hashedCheck = password_verify($password, $row['password']);
       if ($hashedCheck == false){

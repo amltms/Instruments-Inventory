@@ -9,17 +9,3 @@
   background: #f2f2f2;
 
 }
-
-a:hover {
-  text-decoration: none;
-}
-
-.lbtn{
-  background: none;
-  border:none;
-  color:#007bff;
-}
-
-.lbtn:hover{
-  text-decoration: underline;
-}

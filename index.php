@@ -13,6 +13,7 @@
     }elseif (isset($_GET['updated'])) {
       alert("success", "Product updated.");
     }
+
     echo '<div class="container">
       <form method="POST" action="insert_product.php" class="card-body bg-light">
         <h3>Insert Product</h3>
@@ -49,11 +50,10 @@
               <p class="card-text">'.$row["productDiscription"].'</p>
               <h6 class="card-subtitle mb-2 text-muted">Stock: '.$row["productStock"].'</h6>';
               if (isset($_SESSION["username"])) {
-                echo '<form method="POST" action="insert_product.php">
+                echo '
                   <hr>
-                  <button type="submit" value="'.$row["productID"].'" name="edit" class="lbtn">Edit</button>
-                  <button type="submit" value="'.$row["productID"].'" name="delete" class="lbtn">Delete</button>
-                </form>';
+                  <a href="product.php?edit='.$row["productID"].'">Edit</a> | 
+                  <a href="product.php?delete='.$row["productID"].'">Delete</a>';
               }
         echo '</div>
           </div>
